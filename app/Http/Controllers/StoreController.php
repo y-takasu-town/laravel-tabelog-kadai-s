@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Store;
 use Illuminate\Http\Request;
+use App\Models\Category;
+
 
 class StoreController extends Controller
 {
@@ -14,8 +16,11 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $stores = '';
-        return view('stores.index', compact('stores'));
+        $stores =  Store::all();
+        $categories = Category::all();
+
+
+        return view('stores.index', compact('stores','categories'));
     }
 
     /**

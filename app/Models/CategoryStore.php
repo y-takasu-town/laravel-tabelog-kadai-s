@@ -5,11 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Store extends Model
+class CategoryStore extends Model
 {
     use HasFactory;
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class);
-    }
+    protected $table = 'category_store';
 }

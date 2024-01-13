@@ -16,10 +16,17 @@ return new class extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('category_id')->unsigned();
-
-            $table->timestamps();
-        });
+            $table->text('description');
+            $table->string('img');
+            $table->integer('price')->unsigned();
+            $table->time('open_time');
+            $table->time('close_time');
+            $table->string('postal_code');
+            $table->string('address');
+            $table->string('phone_number');
+            $table->string('holiday');
+            $table->timestamps(); 
+           });
     }
 
     /**
