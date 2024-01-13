@@ -8,8 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Store extends Model
 {
     use HasFactory;
-    public function categories()
+    public function category()
     {
         return $this->belongsToMany(Category::class);
+    }
+     
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }

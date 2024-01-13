@@ -52,8 +52,10 @@ class StoreController extends Controller
      */
     public function show(Store $store)
     {
-        //
-    }
+        $reviews = $store->reviews()->get();
+  
+        return view('stores.show', compact('store', 'reviews'));
+   }
 
     /**
      * Show the form for editing the specified resource.
