@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 
 class StoreController extends Controller
@@ -90,4 +91,12 @@ class StoreController extends Controller
     {
         //
     }
+
+    public function favorite(Store $store)
+    {
+        Auth::user()->togglefavorite($store);
+
+        return back();
+    }
+
 }

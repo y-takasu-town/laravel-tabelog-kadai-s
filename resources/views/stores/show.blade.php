@@ -43,18 +43,27 @@
                  <input type="hidden" name="weight" value="0">
 
                  <div class="row">
-                     <div class="col-7">
+                 <!-- 有料会員のみの予約機能 -->
+                 <div class="col-7">
                          <button type="submit" class="btn nagoyameshu-submit-button w-100">
                              <i class="fas fa-shopping-cart"></i>
                              予約する
                          </button>
                      </div>
+
+                   <!-- 有料会員のみのお気に入り機能 -->
                      <div class="col-5">
-                         <a href="/store/{{ $store->id }}/favorite" class="btn nagoyameshi-favorite-button text-dark w-100">
+                     @if($store->isFavoritedBy(Auth::user()))
+                         <a href="{{ route('stores.favorite', $store) }}" class="btn nagoyameshi-favorite-button text-favorite w-100">
+                             <i class="fa fa-heart"></i>
+                             お気に入り解除
+                         </a>
+                         @else
+                         <a href="{{ route('stores.favorite', $store) }}" class="btn nagoyameshi-favorite-button text-favorite w-100">
                              <i class="fa fa-heart"></i>
                              お気に入り
                          </a>
-                     </div>
+                         @endif                     </div>
                  </div>
              </form>
              @endauth
@@ -66,7 +75,7 @@
          </div>
  
          <div class="offset-1 col-10">
-             <!-- レビューの実装 -->
+          <!-- レビュー機能-->
              <div class="row">
                  @foreach($reviews as $review)
                  <div class="offset-md-5 col-md-5">
@@ -75,7 +84,8 @@
                  </div>
                  @endforeach
              </div><br />
- 
+            
+              <!-- 有料会員のみのレビュー投稿機能 -->
              @auth
              <div class="row">
                  <div class="offset-md-5 col-md-5">
