@@ -18,4 +18,10 @@ class Store extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function resarvations()
+    {
+        return $this->hasMany(Resarvation::class);
+    }
+
 }
