@@ -1,3 +1,8 @@
+@extends('layouts.app')
+
+@section('content')
+
+<!-- 予約機能 -->
 <form action="{{ route('reservations.store') }}" method="post">
     @csrf
     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
@@ -24,3 +29,16 @@
 
     <button type="submit">予約する</button>
 </form>
+
+<!-- お気に入り機能 -->
+@if($store->isFavoritedBy(Auth::user()))
+ <a href="{{ route('stores.favorite', $store) }}" class="">
+     お気に入り解除
+ </a>
+ @else
+ <a href="{{ route('stores.favorite', $store) }}" class="">
+     お気に入り
+ </a>
+@endif
+
+@endsection

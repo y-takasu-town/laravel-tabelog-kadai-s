@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
+ /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $reservation = Reservation::instance(Auth::user()->id)->content();
+
+        return view('users.reservation', compact('reservation'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -15,8 +26,9 @@ class ReservationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+
+     public function store(Request $request)
+     {
 
         // 予約を作成
         $reservation = new Reservation();
