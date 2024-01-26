@@ -35,10 +35,10 @@ Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store'
  
 Route::get('stores/{store}/favorite', [StoreController::class, 'favorite'])->name('stores.favorite');
 
-
 Route::resource('stores', StoreController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('reservations', ReservationController::class);
+Route::get('stores/{store}/reservation', [StoreController::class, 'reservation'])->name('stores.reservation');

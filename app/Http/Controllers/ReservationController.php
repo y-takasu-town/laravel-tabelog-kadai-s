@@ -3,23 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use App\Models\Store;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
- /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $reservation = Reservation::instance(Auth::user()->id)->content();
-
-        return view('users.reservation', compact('reservation'));
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -39,7 +28,7 @@ class ReservationController extends Controller
         $reservation->num_of_people = $request->input('num_of_people');
         $reservation->save();
 
-        // 必要に応じて他の処理を追加
+        // 予約が完了すると店舗一覧に戻り、予約完了のメッセージを表示する
 
        return redirect()->route('stores.index')->with('success', '予約が完了しました。');
         

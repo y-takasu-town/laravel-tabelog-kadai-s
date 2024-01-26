@@ -99,4 +99,10 @@ class StoreController extends Controller
         return back();
     }
 
+    public function reservation($store)
+    {    
+        $store = Store::find($store);
+
+        return view('stores.reservation',compact('store'));
+    }
 }
