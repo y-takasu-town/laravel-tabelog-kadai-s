@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 
 <!-- 予約機能 -->
 <form action="{{ route('reservations.store') }}" method="post">
@@ -26,3 +29,5 @@
 
     <button type="submit">予約する</button>
 </form>
+
+@endsection

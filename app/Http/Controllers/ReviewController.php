@@ -27,7 +27,7 @@ class ReviewController extends Controller
         $review->user_id = Auth::user()->id;
         $review->save();
 
-        return back();
-   }
+        return redirect()->route('stores.show');
+    }
 
 }

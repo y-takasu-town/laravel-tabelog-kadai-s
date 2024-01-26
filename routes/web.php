@@ -32,7 +32,9 @@ Route::controller(UserController::class)->group(function () {
 });
 
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
- 
+Route::get('stores/{store}/review', [StoreController::class, 'review'])->name('stores.review');
+
+
 Route::get('stores/{store}/favorite', [StoreController::class, 'favorite'])->name('stores.favorite');
 
 Route::resource('stores', StoreController::class)->middleware(['auth', 'verified']);
