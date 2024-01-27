@@ -18,5 +18,8 @@
 <a href="{{route('mypage.favorite')}}">お気に入り</a>
 <br>
 
+<a href="{{route('mypage.reservations')}}">予約一覧</a>
+<br>
+
 
 @endsection

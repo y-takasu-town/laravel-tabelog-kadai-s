@@ -133,4 +133,11 @@ class UserController extends Controller
         return view('users.favorite', compact('favorites'));
     }
 
+    public function reservations()
+    {
+        $reservations = Auth::user()->reservations;
+        return view('users.reservations', compact('reservations'));
+    }
+
+
 }

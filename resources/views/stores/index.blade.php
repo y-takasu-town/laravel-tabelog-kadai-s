@@ -11,7 +11,25 @@
   <br>
  住所： {{$store->address}}
   <br>
+    @foreach($store->category as $category)
+    <p>{{$category->name}}</p>
+    @endforeach
   @endforeach
+
+  <!-- カテゴリ・店舗名フォーム -->
+  <form>
+  <select name="category_id">
+  <option disabled selected value>カテゴリを選択</option>
+    @foreach ($categories as $category)
+    <option value="{{ $category->id }}">{{ $category->name }}</option>
+  @endforeach
+  <select>
+  <input type="name" name="name">
+  <button type="submit">検索</button>
+</form>
+
+{{ $stores->links() }}
+
 
   <!-- 予約完了時にメッセージを表示 -->
   @if (session('success'))

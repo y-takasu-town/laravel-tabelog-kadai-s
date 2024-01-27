@@ -29,6 +29,8 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users/mypage/password/edit', 'edit_password')->name('mypage.edit_password');
     Route::put('users/mypage/password', 'update_password')->name('mypage.update_password'); 
     Route::get('users/mypage/favorite', 'favorite')->name('mypage.favorite');
+    Route::get('users/mypage/reservations', 'reservations')->name('mypage.reservations');
+
 });
 
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
@@ -44,3 +46,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('reservations', ReservationController::class);
 Route::get('stores/{store}/reservation', [StoreController::class, 'reservation'])->name('stores.reservation');
+
+Route::get('company', [App\Http\Controllers\CompanyController::class, 'index'])->name('company');

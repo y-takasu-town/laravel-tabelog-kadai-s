@@ -15,10 +15,25 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $stores =  Store::all();
+        $name = null;
         $categories = Category::all();
+
+        if($request->name !== null) {
+            $name = $request->name;
+        }
+
+        $stores = Store::where('name', 'like', "%{$name}%");
+
+        if($request->category_id !== null) {
+            $stores = $stores->whereHas('category', function ($query) use ($request) {
+                $query->where('categories.id', $request->category_id);
+            });
+        }
+
+        $total_count = $stores->count();
+        $stores = $stores->paginate();
 
 
         return view('stores.index', compact('stores','categories'));
@@ -105,4 +120,12 @@ class StoreController extends Controller
 
         return view('stores.reservation',compact('store'));
     }
+
+    public function review($store)
+    {    
+        $store = Store::find($store);
+
+        return view('stores.review',compact('store'));
+    }
+
 }
