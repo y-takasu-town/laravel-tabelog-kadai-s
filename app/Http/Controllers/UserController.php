@@ -67,9 +67,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-         $user = Auth::user();
+        $user = Auth::user();
  
-         return view('users.edit', compact('user'));
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -96,9 +96,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request)
     {
-        //
+        Auth::user()->delete();
+     
+        return redirect('/');
     }
 
     public function update_password(Request $request)
@@ -136,7 +138,7 @@ class UserController extends Controller
     public function reservations()
     {
         $reservations = Auth::user()->reservations;
-        
+
         return view('users.reservations', compact('reservations'));
     }
 

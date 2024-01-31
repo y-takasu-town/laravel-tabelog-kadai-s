@@ -30,21 +30,23 @@ Route::controller(UserController::class)->group(function () {
     Route::put('users/mypage/password', 'update_password')->name('mypage.update_password'); 
     Route::get('users/mypage/favorite', 'favorite')->name('mypage.favorite');
     Route::get('users/mypage/reservations', 'reservations')->name('mypage.reservations');
+    Route::delete('users/mypage/delete', 'destroy')->name('mypage.destroy');
 
 });
 
+Route::controller(StoreController::class)->group(function(){
+    Route::get('stores/{store}/review', 'review')->name('stores.review');
+    Route::get('stores/{store}/favorite', 'favorite')->name('stores.favorite');
+    Route::get('stores/{store}/reservation', 'reservation')->name('stores.reservation');
+});
+
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
-Route::get('stores/{store}/review', [StoreController::class, 'review'])->name('stores.review');
-
-
-Route::get('stores/{store}/favorite', [StoreController::class, 'favorite'])->name('stores.favorite');
 
 Route::resource('stores', StoreController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::resource('reservations', ReservationController::class);
-Route::get('stores/{store}/reservation', [StoreController::class, 'reservation'])->name('stores.reservation');
 
-Route::get('company', [App\Http\Controllers\CompanyController::class, 'index'])->name('company');
+Route::get('company', [CompanyController::class, 'index'])->name('company');
