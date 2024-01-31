@@ -20,10 +20,12 @@ class StoreController extends Controller
         $name = null;
         $categories = Category::all();
 
+        //絞り込み機能
         if($request->name !== null) {
             $name = $request->name;
         }
 
+        //部分一致で抽出されるようにする
         $stores = Store::where('name', 'like', "%{$name}%");
 
         if($request->category_id !== null) {
@@ -32,8 +34,9 @@ class StoreController extends Controller
             });
         }
 
+        //絞り込まれたものを表示
         $total_count = $stores->count();
-        $stores = $stores->paginate();
+        $stores = $stores->sortable()->paginate(5);
 
 
         return view('stores.index', compact('stores','categories'));

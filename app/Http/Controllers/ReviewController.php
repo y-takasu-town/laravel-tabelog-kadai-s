@@ -29,6 +29,7 @@ class ReviewController extends Controller
         $review->save();
         $store = Store::find($review->store_id);
 
-        return redirect()->route('stores.show',['store'=>$store]);    }
+        return redirect()->route('stores.show',['store'=>$store]); 
+    }
 
 }

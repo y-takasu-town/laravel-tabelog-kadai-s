@@ -2,31 +2,39 @@
 
 @section('content')
 
-  @foreach ($stores as $store)
-  <a href="{{route('stores.show',$store)}}">
-    {{ $store->name }}
-  </a>
-  <br>
-  {{$store->description}}
-  <br>
- 住所： {{$store->address}}
-  <br>
-    @foreach($store->category as $category)
-    <p>{{$category->name}}</p>
-    @endforeach
-  @endforeach
-
-  <!-- カテゴリ・店舗名フォーム -->
-  <form>
+<!-- カテゴリ・店舗名フォーム -->
+<form>
   <select name="category_id">
-  <option disabled selected value>カテゴリを選択</option>
+    <option disabled selected value>カテゴリを選択</option>
     @foreach ($categories as $category)
     <option value="{{ $category->id }}">{{ $category->name }}</option>
-  @endforeach
-  <select>
+    @endforeach
+  </select>
   <input type="name" name="name">
   <button type="submit">検索</button>
 </form>
+
+
+<!-- ソート機能 -->
+<div>
+ Sort By
+ @sortablelink('id', 'id')
+ @sortablelink('price', 'Price')
+</div>
+
+  @foreach ($stores as $store)
+    <a href="{{route('stores.show',$store)}}">
+      {{ $store->name }}
+    </a>
+    <p>{{$store->description}}</p>
+    <p>価格帯： {{$store->price}}</p>
+    <p>住所： {{$store->address}}</p>
+
+    @foreach($store->category as $category)
+      <p>{{$category->name}}</p>
+    @endforeach
+  @endforeach
+
 
 {{ $stores->links() }}
 

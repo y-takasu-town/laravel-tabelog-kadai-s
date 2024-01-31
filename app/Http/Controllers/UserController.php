@@ -136,6 +136,7 @@ class UserController extends Controller
     public function reservations()
     {
         $reservations = Auth::user()->reservations;
+        
         return view('users.reservations', compact('reservations'));
     }
 
