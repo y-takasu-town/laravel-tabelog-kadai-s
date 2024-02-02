@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Cashier\Billable;
 use App\Notifications\CustomVerifyEmail;
 use App\Notifications\CustomResetPassword;
 use Overtrue\LaravelFavorite\Traits\Favoriter;
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, Favoriter, SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, Favoriter, SoftDeletes, Billable;
  
     protected $dates = ['deleted_at'];
 
