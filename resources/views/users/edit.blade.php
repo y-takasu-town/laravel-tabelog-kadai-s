@@ -66,4 +66,9 @@
  </form>
 </div>
 
+
+@if($user->subscribed('main'))
+<a href="{{ route('subscript.edit') }}">クレジットカード編集</a>
+@endif
+
 @endsection

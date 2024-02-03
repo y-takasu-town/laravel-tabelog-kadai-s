@@ -7,6 +7,8 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SubscriptController;
+
 
 
 /*
@@ -52,3 +54,12 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::resource('reservations', ReservationController::class);
 
 Route::get('company', [CompanyController::class, 'index'])->name('company');
+
+Route::controller(SubscriptController::class)->middleware('auth')->group(function () {
+    Route::get('subscript/', 'index')->name('subscript.index');
+    Route::post('subscript/', 'register')->name('subscript.register');
+    Route::get('subscript/edit', 'edit')->name('subscript.edit');    
+    Route::post('subscript/edit', 'update')->name('subscript.update');
+    Route::get('subscript/cancel', 'cancel_confirm')->name('subscript.cancel_confirm');    
+    Route::post('subscript/cancel', 'cancel')->name('subscript.cancel');
+});

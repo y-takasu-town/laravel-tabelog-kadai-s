@@ -21,6 +21,15 @@
 <a href="{{route('mypage.reservations')}}">予約一覧</a>
 <br>
 
+@if(!$user->subscribed('main'))
+  <a href="{{ route('subscript.index') }}">有料会員になる</a>
+@else
+  <a href="{{ route('subscript.cancel') }}">有料会員を解約する</a>
+@endif
+
+@if (session('message'))
+  {{ session('message') }}
+@endif
 
 
 @endsection
