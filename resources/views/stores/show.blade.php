@@ -34,7 +34,7 @@
 <!-- レビュー一覧 -->
 @foreach($reviews as $review)
 <p>{{$review->content}}</p>
-<label>{{$review->created_at}}{{$review->user->name}}</label>
+<label>{{$review->created_at}}{{$review->user->name??''}}</label>
 @endforeach
 <br>
 
