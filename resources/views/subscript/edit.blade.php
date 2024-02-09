@@ -1,6 +1,19 @@
+@extends('layouts.app')
+
+@section('content')
+
+<span>
+  <a href="{{ route('mypage') }}">マイページ</a> > カード情報変更
+</span>
+
+
+<!-- カード情報を変更したらメッセージを表示する -->
 @if (session('message'))
+<div class="alert alert-warning">
 {{ session('message') }}
+</div>
 @endif
+
 <p>{{$user->defaultPaymentMethod()->billing_details->name}}</p>
 <p>**** **** **** {{$user->defaultPaymentMethod()->card->last4}}</p>
 <form id="card_form" action="{{route('subscript.update')}}" method="POST">
@@ -43,3 +56,5 @@
   });
 
 </script>
+
+@endsection

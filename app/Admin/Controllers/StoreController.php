@@ -31,7 +31,6 @@ class StoreController extends AdminController
         $grid->column('name', __('Name'));
         $grid->column('description', __('Description'));
         $grid->column('price', __('Price'));
-        $grid->column('category.name', __('Category Name'));
         $grid->column('image', __('Image'))->image();
         $grid->column('open_time', __('Open time'));
         $grid->column('close_time', __('Close time'));
@@ -59,7 +58,6 @@ class StoreController extends AdminController
         $show->field('name', __('Name'));
         $show->field('description', __('Description'));
         $show->field('price', __('Price'));
-        $show->field('category.name', __('Category Name'));
         $show->field('image', __('Image'))->image();
         $show->field('open_time', __('Open time'));
         $show->field('close_time', __('Close time'));
@@ -85,7 +83,6 @@ class StoreController extends AdminController
         $form->text('name', __('Name'));
         $form->textarea('description', __('Description'));
         $form->number('price', __('Price'));
-        $form->select('category_id', __('Category Name'))->options(Category::all()->pluck('name', 'id'));
         $form->time('open_time', __('Open time'))->default(date('H:i:s'));
         $form->time('close_time', __('Close time'))->default(date('H:i:s'));
         $form->text('postal_code', __('Postal code'));

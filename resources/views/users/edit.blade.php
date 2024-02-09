@@ -42,7 +42,11 @@
  <form method="POST" action="{{ route('mypage.destroy') }}">
     @csrf
     <input type="hidden" name="_method" value="DELETE">
-     <div class="btn dashboard-delete-link" data-bs-toggle="modal" data-bs-target="#delete-user-confirm-modal">退会する</div>
+     <div class="btn dashboard-delete-link" data-bs-toggle="modal" data-bs-target="#delete-user-confirm-modal">
+       <button type="submit" class=""> 
+        退会する
+       </button>
+    </div>
  
      <div class="modal fade" id="delete-user-confirm-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
        <div class="modal-dialog">

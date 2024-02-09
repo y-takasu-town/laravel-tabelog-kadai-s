@@ -33,13 +33,12 @@
 
 <!-- レビュー一覧 -->
 @foreach($reviews as $review)
-    <p>{{$review->content}}</p>
-    <label>{{$review->created_at}}{{$review->user->name}}</label>
+<p>{{$review->content}}</p>
+<label>{{$review->created_at}}{{$review->user->name}}</label>
 @endforeach
 <br>
 
 <!-- 有料会員のみレビュー投稿画面へ -->
 <a href="{{route('stores.review',$store)}}">レビュー投稿</a>
-
 
 @endsection

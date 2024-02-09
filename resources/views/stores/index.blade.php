@@ -2,6 +2,13 @@
 
 @section('content')
 
+  <!-- 予約完了時にメッセージを表示 -->
+  @if (session('success'))
+  <div class=”alert alert-warning“>
+    {{ session('success') }}
+  </div>
+  @endif
+
 <!-- カテゴリ・店舗名フォーム -->
 <form>
   <select name="category_id">
@@ -24,7 +31,12 @@
 
   @foreach ($stores as $store)
     <a href="{{route('stores.show',$store)}}">
-      {{ $store->name }}
+      <h3>{{ $store->name }}</h3>
+       @if ($store->image !== "")
+         <img src="{{ asset($store->image) }}" class="img-thumbnail">
+       @else
+          <img src="{{ asset('img/dummy.png')}}" class="img-thumbnail">
+       @endif
     </a>
     <p>{{$store->description}}</p>
     <p>価格帯： {{$store->price}}</p>
@@ -37,11 +49,5 @@
 
 
 {{ $stores->links() }}
-
-
-  <!-- 予約完了時にメッセージを表示 -->
-  @if (session('success'))
-    {{ session('success') }}
-  @endif
 
 @endsection
