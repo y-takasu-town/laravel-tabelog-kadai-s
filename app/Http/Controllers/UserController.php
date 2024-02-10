@@ -111,12 +111,8 @@ class UserController extends Controller
 
         $user = Auth::user();
 
-        if ($request->input('password') == $request->input('password_confirmation')) {
             $user->password = bcrypt($request->input('password'));
             $user->update();
-        } else {
-            return to_route('mypage.edit_password')->with('message','パスワードが一致しませんでした。');
-        }
 
         return to_route('mypage')->with('message','パスワードを変更しました。');
     }

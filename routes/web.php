@@ -22,10 +22,6 @@ use App\Http\Controllers\SubscriptController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::controller(UserController::class)->group(function () {
     Route::get('users/mypage', 'mypage')->name('mypage');
     Route::get('users/mypage/edit', 'edit')->name('mypage.edit');
@@ -49,7 +45,7 @@ Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store'
 Route::resource('stores', StoreController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index']);
 
 Route::resource('reservations', ReservationController::class);
 
@@ -58,8 +54,8 @@ Route::get('company', [CompanyController::class, 'index'])->name('company');
 Route::controller(SubscriptController::class)->middleware('auth')->group(function () {
     Route::get('subscript/', 'index')->name('subscript.index');
     Route::post('subscript/', 'register')->name('subscript.register');
-    Route::get('subscript/edit', 'edit')->name('subscript.edit');    
-    Route::post('subscript/edit', 'update')->name('subscript.update');
-    Route::get('subscript/cancel', 'cancel_confirm')->name('subscript.cancel_confirm');    
-    Route::post('subscript/cancel', 'cancel')->name('subscript.cancel');
+    Route::get('subscript/edit', 'edit')->middleware('subscribed')->name('subscript.edit');    
+    Route::post('subscript/edit', 'update')->middleware('subscribed')->name('subscript.update');
+    Route::get('subscript/cancel', 'cancel_confirm')->middleware('subscribed')->name('subscript.cancel_confirm');    
+    Route::post('subscript/cancel', 'cancel')->middleware('subscribed')->name('subscript.cancel');
 });

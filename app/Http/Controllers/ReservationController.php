@@ -6,6 +6,7 @@ use App\Models\Reservation;
 use App\Models\Store;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Datetime;
 
 class ReservationController extends Controller
 {
@@ -18,6 +19,17 @@ class ReservationController extends Controller
 
      public function store(Request $request)
      {
+        $request->validate([
+            'num_of_people' => 'required|integer'  ,
+            'reservation_date' => 'required|date' ,
+            'reservation_time' => 'required'
+        ]);
+
+        $date_time = new DateTime($request->input('reservation_date').' '. $request->input('reservation_time').':00');
+        
+        if (new DateTime() > $date_time) {
+            return back()->withInput($request->input())->withErrors(['message' => '現在より過去の予約日時は指定できません。']);
+        }
 
         // 予約を作成
         $reservation = new Reservation();

@@ -9,10 +9,12 @@
 <hr>
 
 <!-- パスワード不一致で変更できなかった場合にメッセージを表示 -->
-@if (session('message'))
+@if (isset($errors))
+@foreach ($errors->all() as $error)
 <div class="alert alert-warning">
-  {{ session('message') }}
+{{ $error }}
 </div>
+@endforeach
 @endif
 
   <form method="post" action="{{route('mypage.update_password')}}">

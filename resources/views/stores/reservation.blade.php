@@ -10,7 +10,7 @@
 
     <!-- 予約日 -->
     <label for="reservation_date">予約日:</label>
-    <input type="date" name="reservation_date" required>
+    <input type="date" name="reservation_date" required value="{{old('reservation_date')}}">
 
     <!-- 予約時間 -->
     <label for="reservation_time">予約時間:</label>
@@ -25,9 +25,19 @@
 
     <!-- 予約人数 -->
     <label for="num_of_people">予約人数:</label>
-    <input type="number" name="num_of_people" required min="1">
+    <input type="number" name="num_of_people" required min="1" value="{{old('num_of_people')}}">
+
 
     <button type="submit">予約する</button>
 </form>
+
+
+@if (isset($errors))
+@foreach ($errors->all() as $error)
+<div class="alert alert-warning">
+{{ $error }}
+</div>
+@endforeach
+@endif
 
 @endsection
