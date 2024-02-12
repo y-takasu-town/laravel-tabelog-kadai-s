@@ -9,6 +9,7 @@
        <span class="navbar-toggler-icon"></span>
      </button>
 
+
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
        <!-- Right Side Of Navbar -->
        <ul class="navbar-nav ms-auto mr-5 mt-2">
@@ -25,7 +26,8 @@
          @else
          <li class="nav-item mr-5">
            <a class="nav-link" href="{{ route('mypage') }}">
-             <i class="fas fa-user mr-1"></i><label>マイページ</label>
+             <i class="fas fa-user mr-1"></i>
+             マイページ
            </a>
          </li>
          @endguest

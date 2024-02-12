@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<h1>{{$store->name}}</h1>
+
+<!-- 予約内容に不備がある場合にエラーを表示する -->
+@if (isset($errors))
+@foreach ($errors->all() as $error)
+<div class="alert alert-warning">
+{{ $error }}
+</div>
+@endforeach
+@endif
 
 <!-- 予約機能 -->
 <form action="{{ route('reservations.store') }}" method="post">
@@ -31,13 +41,5 @@
     <button type="submit">予約する</button>
 </form>
 
-
-@if (isset($errors))
-@foreach ($errors->all() as $error)
-<div class="alert alert-warning">
-{{ $error }}
-</div>
-@endforeach
-@endif
 
 @endsection

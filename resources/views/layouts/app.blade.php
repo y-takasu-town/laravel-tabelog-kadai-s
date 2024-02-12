@@ -19,6 +19,8 @@
 
     <!-- Styles -->
      <link href="{{ asset('css/nagoyameshi.css') }}" rel="stylesheet">
+     <script src="https://kit.fontawesome.com/d8f6c17178.js" crossorigin="anonymous"></script>
+
 
 </head>
 <body>

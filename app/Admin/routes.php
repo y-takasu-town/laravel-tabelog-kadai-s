@@ -23,5 +23,6 @@ Route::group([
     $router->resource('stores', StoreController::class);
     $router->resource('users', UserController::class);    
     $router->resource('category_store', CategoryStoreController::class);    
+    $router->resource('company', CompanyController::class);    
 
 });
