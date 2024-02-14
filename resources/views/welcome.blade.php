@@ -8,8 +8,9 @@
                 <p class="lead">名古屋のB級グルメ</p>
 
 <!-- カテゴリ・店舗名フォーム -->
-<form>
-  <select name="category_id">
+<form action="{{route('stores.index')}}" method="GET">
+@csrf
+<select name="category_id">
     <option disabled selected value>カテゴリを選択</option>
     @foreach ($categories as $category)
     <option value="{{ $category->id }}">{{ $category->name }}</option>
