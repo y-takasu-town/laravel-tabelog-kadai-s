@@ -31,6 +31,10 @@
            </a>
          </li>
          @endguest
+         <a class="nav-link" href="{{route('company')}}">
+         <i class="far fa-building"></i>
+         会社情報
+        </a>
        </ul>
      </div>
    </div>

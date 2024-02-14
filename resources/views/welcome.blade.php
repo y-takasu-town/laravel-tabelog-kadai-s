@@ -1,22 +1,27 @@
-<div id="top-font">
-    <h2>名古屋B級グルメに特化したレビューアプリ</h2>
-    <h1>NAGOYAMESHI</h1>
-</div>
+ @extends('layouts.app')
 
-<div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-        @auth
-            <a href="{{ route('store') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">店舗一覧</a>
+@section('content')
+<div class="container-fluid top-container">
+        <div class="row justify-content-center align-items-center" style="height: 70vh">
+            <div class="col-md-6 text-center mx-auto">
+                <h1 class="display-3">NAGOYAMESHI</h1>
+                <p class="lead">名古屋のB級グルメ</p>
 
-            <!--　ログインしている人のみ表示される店舗検索フォームを表示 -->
+<!-- カテゴリ・店舗名フォーム -->
+<form>
+  <select name="category_id">
+    <option disabled selected value>カテゴリを選択</option>
+    @foreach ($categories as $category)
+    <option value="{{ $category->id }}">{{ $category->name }}</option>
+    @endforeach
+  </select>
+  <input type="name" name="name">
+  <button type="submit">検索</button>
+</form>
 
+                
+            </div>
+        </div>
+    </div>
 
-
-        @else
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ログイン</a>
-
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">会員登録</a>
-            @endif
-        @endauth
-    <a href="{{route('company')}}">会社情報</a>
- </div>
+@endsection
