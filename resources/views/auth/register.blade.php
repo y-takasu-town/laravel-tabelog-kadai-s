@@ -4,7 +4,7 @@
  <div class="container">
      <div class="row justify-content-center">
          <div class="col-md-5">
-             <h3 class="mt-3 mb-3">新規会員登録</h3>
+             <h3 class="mt-3 mb-3 text-center">新規会員登録</h3>
  
              <hr>
  
@@ -54,7 +54,7 @@
                  </div>
  
                  <div class="form-group row">
-                     <label for="password-confirm" class="col-md-5 col-form-label text-md-left">パスワード（確認のためもう一度入力してください）</label>
+                     <label for="password-confirm" class="col-md-5 col-form-label text-md-left">パスワード（確認用）</label>
  
                      <div class="col-md-7">
                          <input id="password-confirm" type="password" class="form-control nagoyameshi-login-input" name="password_confirmation" required autocomplete="new-password">

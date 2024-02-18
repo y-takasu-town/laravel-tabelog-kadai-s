@@ -1,9 +1,11 @@
-<nav class="navbar navbar-expand-md navbar-light shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light nagoyameshi-navbar">
   <div class="container">
-    <div class="w-100 text-center">
-      <a class="navbar-brand" href="{{ url('/') }}">
-        <img src="{{asset('img/logo.png')}}" class="img-logo">
-      </a> 
+    <a class="navbar-brand" href="{{ url('/') }}">
+      <img src="{{asset('img/logo.png')}}" class="img-logo">
+    </a> 
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Right Side Of Navbar -->
@@ -30,7 +32,6 @@
           <a class="nav-link" href="{{route('company')}}">
           <i class="far fa-building"></i>会社情報</a>
         </ul>
-      </div>
     </div>
   </div>
 </nav>

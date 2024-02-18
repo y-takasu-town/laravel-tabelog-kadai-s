@@ -4,9 +4,9 @@
  <div class="container">
      <div class="row justify-content-center">
          <div class="col-md-5">
-             <h3 class="mt-3 mb-3">パスワード再設定</h3>
+             <h3 class="mt-3 mb-3 text-center">パスワード再設定</h3>
  
-             <p>
+             <p class="text-center">
                  ご登録時のメールアドレスを入力してください。<br>
                  パスワード再発行用のメールをお送りします。  
              </p>
