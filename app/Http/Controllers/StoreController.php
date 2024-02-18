@@ -36,7 +36,7 @@ class StoreController extends Controller
 
         //絞り込まれたものを表示
         $total_count = $stores->count();
-        $stores = $stores->sortable()->paginate(5);
+        $stores = $stores->sortable()->paginate(15);
 
 
         return view('stores.index', compact('stores','categories'));

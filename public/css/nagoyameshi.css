@@ -54,15 +54,67 @@
   color: rgb(195, 167, 11);
 }
 
-.samuraimart-header-container {
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+.nagoyameshi-store-flame{
+  display:  inline-block;
+  vertical-align: top;
+  text-align: center;
+  vertical-align:  middle; 
+  margin:10px;
+  padding: 5px 20px;
+  width: 30%;;
+  height: auto;
+  background-color:rgba(136, 172, 84, 0.477);
+
+}
+
+.nagoyameshi-store-name{
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.nagoyameshi-store-category{
+  display: flex;
+  white-space: nowrap;
+  width: 50%;
+}
+
+.nagoyameshi-store-description{
+  text-align: left;
+  white-space: pre-wrap;
 }
 
 .img-logo{
   width: 15%;
   height: auto;
+  margin: auto;
+  display: block;
 }
 
+.img-thumbnail{
+  border: 1px solid #ddd;
+  width: 80%;
+  height: 20rem;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+}
 
+.img-thumbnail img{
+  width: 100%;
+  transition-duration: 0.5s;
+}
 
+.img-thumbnail:hover{
+  transform: scale(1.05);
+  transition-duration: 0.5s;
+}
+
+main {
+  background-image: url('../img/top.png');  
+  background-position: center center; 
+  background-repeat: repeat;  
+  background-attachment: fixed; 
+  background-size: cover;
+ }
+ 
+ 
