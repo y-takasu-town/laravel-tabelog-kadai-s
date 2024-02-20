@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-@section('css')
-<link href="{{asset('css.nagoyameshi.css')}}" rel="stylesheet">
-
 @section('content')
 
   <!-- 予約完了時にメッセージを表示 -->
@@ -46,12 +43,13 @@
               @endif
             </a>
             <div class="nagoyameshi-store-description">
-              <p class="mt-4">{{$store->description}}</p>
               <p>価格帯： {{$store->price}}</p>
               <p>住所： {{$store->address}}</p>
-              <div class="nagoyameshi-store-category">
+              <div>
                 @foreach($store->category as $category)
-                  <p>#{{$category->name}}</p> 
+                  <div class="badge text-bg-success">
+                    <p>#{{$category->name}}</p> 
+                  </div>
                 @endforeach
               </div>
             </div>
