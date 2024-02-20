@@ -31,6 +31,17 @@ class ReservationController extends Controller
             return back()->withInput($request->input())->withErrors(['message' => '現在より過去の予約日時は指定できません。']);
         }
 
+        $store = Store::find($request->store_id);
+        if($store->open_time > $date_time->format('H:i:s') || $store->close_time < $date_time->format('H:i:s')){
+            return back()->withInput($request->input())->withErrors(['message' => '営業時間外です。']);
+        }
+
+        foreach(explode(',',$store->holiday) as $holiday){
+            if(array_search($holiday,Store::DAY_OF_WEEK) == $date_time->format('w')){
+                return back()->withInput($request->input())->withErrors(['message' => '定休日です。']);
+            }
+        }
+
         // 予約を作成
         $reservation = new Reservation();
         $reservation->user_id = $request->input('user_id');

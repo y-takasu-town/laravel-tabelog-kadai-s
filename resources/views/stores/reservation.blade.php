@@ -29,7 +29,11 @@
             @php
                 $time = \Carbon\Carbon::createFromTime(0, 0)->addMinutes($i * 30);
             @endphp
+            @if(old('reservation_time') && old('reservation_time') == $time->format('H:i'))
+            <option value="{{ $time->format('H:i') }}" selected>{{ $time->format('H:i') }}</option>
+            @else
             <option value="{{ $time->format('H:i') }}">{{ $time->format('H:i') }}</option>
+            @endif
         @endfor
     </select>
 
