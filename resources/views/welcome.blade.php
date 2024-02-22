@@ -22,8 +22,6 @@
                     <input type="name" name="name" placeholder="キーワードを入力" class="form-control mt-3 w-100">
                     <button type="submit" class="mt-3 btn nagoyameshi-submit-button w-100">検索</button>
                 </form>
-
-                
             </div>
         </div>
     </div>

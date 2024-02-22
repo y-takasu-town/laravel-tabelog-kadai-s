@@ -32,7 +32,7 @@ class ReservationController extends Controller
         }
 
         $store = Store::find($request->store_id);
-        if($store->open_time > $date_time->format('H:i:s') || $store->close_time < $date_time->format('H:i:s')){
+        if($store->open_time > $date_time->format('H:i') || $store->close_time < $date_time->format('H:i')){
             return back()->withInput($request->input())->withErrors(['message' => '営業時間外です。']);
         }
 

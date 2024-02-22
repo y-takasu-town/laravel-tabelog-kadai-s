@@ -94,7 +94,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        $favorites = $user->favorites(Store::class)->get();
+        $favorites = $user->getFavoriteItems(Store::class)->get();
 
         return view('users.favorite', compact('favorites'));
     }

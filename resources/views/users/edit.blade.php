@@ -62,8 +62,8 @@
           <form method="POST" action="{{ route('mypage.destroy') }}">
             @csrf
             <input type="hidden" name="_method" value="DELETE">
-            <div data-bs-toggle="modal" data-bs-target="#delete-user-confirm-modal">
-             <a class="btn btn-link mt-3 d-flex justify-content-center nagoyameshi-login-text">
+            <div data-bs-toggle="modal" data-bs-target="#delete-user-confirm-modal" class="text-center">
+             <a class="btn btn-link mt-3 nagoyameshi-login-text">
                 退会する
               </a>
             </div>
