@@ -73,6 +73,10 @@
   color: rgb(195, 167, 11);
 }
 
+.nagoyameshi-login-text:hover{
+  color: rgba(195, 167, 11, 0.5);
+}
+
 .nagoyameshi-store-flame{
   display:  inline-block;
   vertical-align: top;

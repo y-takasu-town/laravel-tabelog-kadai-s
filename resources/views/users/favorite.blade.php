@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-  <span>
-    <a href="{{ route('mypage') }}">マイページ</a> > お気に入り
-  </span>
+<nav>
+    <a href="{{ route('mypage') }}" class="link-secondary text-decoration-none">マイページ</a> > お気に入り
+</nav>
 
   <h3 class="mt-3 mb-3 text-center">お気に入り</h3>
 
@@ -22,13 +22,11 @@
           <div class="nagoyameshi-store-description">
             <p>価格帯： {{$fav->price}}</p>
             <p>住所： {{$fav->address}}</p>
-            <div class="">
-              @foreach($fav->category as $category)
-                <div class="badge text-bg-success d-inline-block">
-                  <p>#{{$category->name}}</p> 
-                </div>
-              @endforeach
-            </div>
+            @foreach($fav->category as $category)
+              <div class="badge text-bg-success d-inline-block">
+                <p>#{{$category->name}}</p> 
+              </div>
+            @endforeach
           </div>
           <a href="{{ route('stores.favorite', $fav) }}" class="btn btn-link mt-3 d-flex justify-content-center nagoyameshi-login-text">
             削除

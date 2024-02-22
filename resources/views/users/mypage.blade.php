@@ -18,11 +18,11 @@
           <th scope="row">
             <a href="{{route('mypage.edit')}}" class="h4 text-decoration-none text-nowrap fw-bold link-body-emphasis">会員情報編集</a>
           </th>
-            <td>
-              <div class="text-nowrap">
-                お名前・メールアドレスの変更
-              </div>
-              </td>
+          <td>
+            <div class="text-nowrap">
+              お名前・メールアドレスの変更
+            </div>
+          </td>
       </tr>
 
       <tr>
