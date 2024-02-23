@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<nav>
-  <a href="{{ route('mypage') }}" class="link-secondary text-decoration-none">マイページ</a> > 会員情報の編集
-</nav>
+  <nav>
+    <a href="{{ route('mypage') }}" class="link-secondary text-decoration-none">マイページ</a> > 会員情報の編集
+  </nav>
 
-<div class="container">
-   <div class="row justify-content-center">
-     <div class="col-md-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5">
         <h3 class="mt-3 mb-3 text-center">会員情報の編集</h3>
         <hr>
 
         <form method="POST" action="{{ route('mypage') }}">
-        @csrf
+          @csrf
           <input type="hidden" name="_method" value="PUT">
           <div class="form-group row">
             <label for="name" class="col-md-5 col-form-label text-md-left">氏名</label>
@@ -63,7 +63,7 @@
             @csrf
             <input type="hidden" name="_method" value="DELETE">
             <div data-bs-toggle="modal" data-bs-target="#delete-user-confirm-modal" class="text-center">
-             <a class="btn btn-link mt-3 nagoyameshi-login-text">
+            <a class="btn btn-link mt-3 nagoyameshi-login-text">
                 退会する
               </a>
             </div>

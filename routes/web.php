@@ -39,9 +39,9 @@ Route::controller(UserController::class)->group(function () {
 });
 
 Route::controller(StoreController::class)->group(function(){
-    Route::get('stores/{store}/review', 'review')->name('stores.review');
-    Route::get('stores/{store}/favorite', 'favorite')->name('stores.favorite');
-    Route::get('stores/{store}/reservation', 'reservation')->name('stores.reservation');
+    Route::get('stores/{store}/review', 'review')->middleware('subscribed')->name('stores.review');
+    Route::get('stores/{store}/favorite', 'favorite')->middleware('subscribed')->name('stores.favorite');
+    Route::get('stores/{store}/reservation', 'reservation')->middleware('subscribed')->name('stores.reservation');
 });
 
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');

@@ -3,7 +3,7 @@
 @section('content')
 
 <span>
-  <a href="{{ route('mypage') }}">マイページ</a> > カード情報変更
+  <a href="{{ route('mypage') }}" class="link-secondary text-decoration-none">マイページ</a> > カード情報変更
 </span>
 
 
@@ -13,6 +13,8 @@
 {{ session('message') }}
 </div>
 @endif
+
+
 
 <p>{{$user->defaultPaymentMethod()->billing_details->name}}</p>
 <p>**** **** **** {{$user->defaultPaymentMethod()->card->last4}}</p>

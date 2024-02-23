@@ -10,6 +10,9 @@
   background-image: url('../img/header.png'); 
   position: fixed;
   width: 100%;
+  top: 0;
+  left: 0;
+  height: 20vh;
 }
 
 .nagoyameshi-login-input {
@@ -84,7 +87,7 @@
   margin:10px;
   padding: 20px 20px;
   width: 30%;
-  height: 19%;
+    /* height: 19%; */
   background-color:rgba(220, 189, 109, 0.477);
 
 }
@@ -128,13 +131,13 @@
 main {
   width: 100%;
   height: 80vh;
-  position: relative;
+  /* position: relative; */
   background-image: url('../img/top.png');  
   background-position: center;
   background-repeat: no-repeat;  
   background-attachment: fixed; 
   background-size: cover;
-  
+  margin-top: 20vh;
 }
  
  
