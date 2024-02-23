@@ -3,16 +3,16 @@
   height: auto;
   margin: auto;
   background-repeat: no-repeat;  
-  background-size: 100% 100%;
+  background-size: 30%;
 }
 
 .nagoyameshi-navbar{
-  background-image: url('../img/header.png'); 
+  background-image: url('../img/top.png'); 
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  height: 20vh;
+  height: 15vh;
 }
 
 .nagoyameshi-login-input {
@@ -87,9 +87,7 @@
   margin:10px;
   padding: 20px 20px;
   width: 30%;
-    /* height: 19%; */
-  background-color:rgba(220, 189, 109, 0.477);
-
+  background-color:rgba(243, 228, 182, 0.875);
 }
 
 .nagoyameshi-store-name{
@@ -130,14 +128,24 @@
 
 main {
   width: 100%;
-  height: 80vh;
-  /* position: relative; */
-  background-image: url('../img/top.png');  
-  background-position: center;
-  background-repeat: no-repeat;  
-  background-attachment: fixed; 
+  min-height: 100vh;
+  background-image: url('../img/oldflower.png');  
+  background-repeat: no-repeat; 
   background-size: cover;
-  margin-top: 20vh;
+  background-attachment: fixed;
+  margin-top: 15vh;
 }
  
- 
+.nagoyameshi-footer{
+  background-image: url('../img/top.png'); 
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 6vh;
+}
+
+.container{
+  background-color: rgba(250, 235, 215, 0.756);
+  padding: 1vh;
+  margin-bottom: 3vh;
+}

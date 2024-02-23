@@ -36,8 +36,6 @@ class UserController extends AdminController
 
         $grid->filter(function($filter) {
             $filter->like('name', 'ユーザー名');
-            $filter->like('email', 'メールアドレス');
-            $filter->between('created_at', '登録日')->datetime();
             $filter->scope('trashed', 'Soft deleted data')->onlyTrashed();
         });
 

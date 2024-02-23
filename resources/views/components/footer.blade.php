@@ -1,5 +1,3 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-bottom mt-5">
-     <a class="navbar-brand mx-auto" href="{{ url('/') }}">
-         <img src="{{asset('img/logo.png')}}" class="img-logo">
-     </a>
- </nav>
+<nav class="nagoyameshi-footer">
+<p class="fst-italic text-center">&copy; 2024 NAGOYAMESHI. All Rights Reserved.</p>
+</nav>

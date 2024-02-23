@@ -41,6 +41,10 @@ class StoreController extends AdminController
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
+        $grid->filter(function($filter) {
+            $filter->like('name', '店舗名');
+        });
+
         return $grid;
     }
 
@@ -83,8 +87,8 @@ class StoreController extends AdminController
         $form->text('name', __('Name'));
         $form->textarea('description', __('Description'));
         $form->number('price', __('Price'));
-        $form->time('open_time', __('Open time'))->default(date('H:i:s'));
-        $form->time('close_time', __('Close time'))->default(date('H:i:s'));
+        $form->time('open_time', __('Open time'))->default(date('H:i'));
+        $form->time('close_time', __('Close time'))->default(date('H:i'));
         $form->text('postal_code', __('Postal code'));
         $form->text('address', __('Address'));
         $form->text('phone_number', __('Phone number'));

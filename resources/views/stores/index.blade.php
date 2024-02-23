@@ -57,6 +57,7 @@
       @endforeach
     </div>
   </div>
-{{ $stores->links() }}
 
+  {{ $stores->links() }}
+  
 @endsection

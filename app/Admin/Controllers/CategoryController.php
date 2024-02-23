@@ -34,7 +34,6 @@ class CategoryController extends AdminController
 
         $grid->filter(function($filter) {
             $filter->like('name', 'カテゴリー名');
-            $filter->between('created_at', '登録日')->datetime();
         });
 
         return $grid;

@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-  <nav>
-    <a href="{{ route('mypage') }}" class="link-secondary text-decoration-none">マイページ</a> > 会員情報の編集
-  </nav>
-
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-5">

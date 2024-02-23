@@ -1,9 +1,6 @@
 @extends('layouts.app')
  
  @section('content')
- <nav>
-  <a href="{{ route('mypage') }}" class="link-secondary text-decoration-none">マイページ</a> > パスワード変更
-</nav>
 
   <div class="container">
    <div class="row justify-content-center">

@@ -4,7 +4,7 @@
 <link href="{{asset('css/nagoyameshi.css')}}" rel="stylesheet">
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
         <div class="row justify-content-center align-items-center" style="height: 60vh">
             <div class="col-md-6 text-center mx-auto">
                 <h1 class="display-3">NAGOYAMESHI</h1>
