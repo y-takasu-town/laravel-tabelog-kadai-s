@@ -51,8 +51,8 @@
               </button>
             </a>
           </div>
+          <hr>
         @endif
-        <hr>
 
         <div class="form-group">
           <form method="POST" action="{{ route('mypage.destroy') }}">

@@ -2,11 +2,6 @@
 
 @section('content')
 
-  <span>
-    <a href="{{ route('mypage') }}" class="link-secondary text-decoration-none">マイページ</a> > カード情報変更
-  </span>
-
-
   <!-- カード情報を変更したらメッセージを表示する -->
   @if (session('message'))
   <div class="alert alert-warning">

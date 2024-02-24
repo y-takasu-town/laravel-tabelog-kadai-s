@@ -20,6 +20,7 @@
                 <p class="card-text">予約人数： {{ $reservation->num_of_people}}名</p>
                 <form action="{{route('reservations.destroy', $reservation)}}" method="post" onsubmit="return confirm('予約をキャンセルします。よろしいですか？');" class="position-absolute bottom-0 end-0">
                   @csrf
+                  @method('DELETE')
                   <button type="submit" class="btn btn-link d-flex justify-content-center nagoyameshi-login-text">キャンセルする</button>
                 </form>
               </div>

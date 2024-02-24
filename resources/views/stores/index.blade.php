@@ -23,7 +23,7 @@
     </form>
 
     <!-- ソート機能 -->
-    <div>
+    <div class="fw-bold">
       並び替え
       @sortablelink('price', '価格帯')
    </div>
@@ -59,5 +59,4 @@
   </div>
 
   {{ $stores->links() }}
-  
 @endsection
