@@ -26,7 +26,7 @@ Route::get('/',function(){
     return view ('welcome');
 });
 
-Route::controller(UserController::class)->group(function () {
+Route::controller(UserController::class)->middleware('auth','verified')->group(function () {
     Route::get('users/mypage', 'mypage')->name('mypage');
     Route::get('users/mypage/edit', 'edit')->name('mypage.edit');
     Route::put('users/mypage', 'update')->name('mypage.update');
@@ -46,7 +46,7 @@ Route::controller(StoreController::class)->group(function(){
 
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
-Route::resource('stores', StoreController::class)->middleware(['auth', 'verified']);
+Route::resource('stores', StoreController::class);
 Auth::routes(['verify' => true]);
 
 Route::get('/', [HomeController::class, 'index']);
@@ -55,7 +55,7 @@ Route::resource('reservations', ReservationController::class);
 
 Route::get('company', [CompanyController::class, 'index'])->name('company');
 
-Route::controller(SubscriptController::class)->middleware('auth')->group(function () {
+Route::controller(SubscriptController::class)->middleware('auth','verified')->group(function () {
     Route::get('subscript/', 'index')->name('subscript.index');
     Route::post('subscript/', 'register')->name('subscript.register');
     Route::get('subscript/edit', 'edit')->middleware('subscribed')->name('subscript.edit');    
