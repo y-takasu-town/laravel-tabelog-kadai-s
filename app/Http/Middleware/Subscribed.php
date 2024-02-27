@@ -17,7 +17,7 @@ class Subscribed
     public function handle(Request $request, Closure $next)
     {
         if ($request->user() && !$request->user()->subscribed('main')) {
-            return redirect()->route('mypage')->with('message', '有料会員限定のURLです');
+            return redirect()->route('subscript.index')->with('message', '有料会員限定の機能です。');
         }
 
         return $next($request);

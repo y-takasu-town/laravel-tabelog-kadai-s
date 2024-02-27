@@ -46,7 +46,7 @@ Route::controller(StoreController::class)->group(function(){
 
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
-Route::resource('stores', StoreController::class);
+Route::resource('stores', StoreController::class)->middleware('auth','verified');
 Auth::routes(['verify' => true]);
 
 Route::get('/', [HomeController::class, 'index']);
